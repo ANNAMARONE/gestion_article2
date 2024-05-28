@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('article', function (Blueprint $table) {
+        Schema::create('commentaire', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->text('description')->nullable();
-            $table->enum('type', ['à la une', 'Non-vedette'])->nullable();
-            $table->string('image')->default('https://place-hold.it/300x500');
+            $table->string('contenu')->nullable();
+            $table->string('nom_complet_auteur')->nullable();
+            $table->foreignId('commentaire_id');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('article');
+        Schema::dropIfExists('commentaire');
     }
 };
