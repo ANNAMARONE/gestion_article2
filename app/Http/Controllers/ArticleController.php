@@ -7,24 +7,22 @@ use App\Models\Article;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     protected $Article;
     public function __construct(){
         $this->Article=new Article();
     }
     public function index()
     {
-        $reponse['Article']=$this->Article->all();
-        return view('articles.index')->with($reponse);
+        $response['Article']= $this->Article->all();
+        return view('articles.index')->with($response);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating anew resource.
      */
-    public function create()
+    public function creation()
     {
+        return view('articles.creation');
         //
     }
 
@@ -33,6 +31,8 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $this->Article->create($request->all());
+        return redirect()->route('articles.index')->with('success', 'Article created successfully.');
         //
     }
 
@@ -49,6 +49,8 @@ class ArticleController extends Controller
      */
     public function edit(string $id)
     {
+       $response['articles']=$this->Article->find($id);
+       return view('articles.modif')->with($response);
         //
     }
 
@@ -57,7 +59,10 @@ class ArticleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+      
+      $article=$this->Article->find($id);
+      $article->update(array_merge($article->toArray(),$request->toArray()));
+      return redirect('articles');
     }
 
     /**
