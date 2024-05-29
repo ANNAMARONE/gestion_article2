@@ -39,9 +39,11 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function detail(string $id)
     {
-        //
+        $article=Article::find($id);
+        return view('articles.detail',compact('article'));
+
     }
 
     /**
@@ -70,6 +72,8 @@ class ArticleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $article=$this->Article->find($id);
+        $article->delete();
+        return redirect('articles');
     }
 }

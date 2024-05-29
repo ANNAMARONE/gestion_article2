@@ -21,12 +21,12 @@
             @foreach ($Article as $key => $article )
             
             <div class="card" style="width:30rem;">
-            <a href="{{ route('articles.show',$article->id)}}">{{$article->type}}</a>
+            <button>{{$article->type}}</button>
   <img src="{{$article->image}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{$article->nom}}</h5>
      <p class="card-date">créer le:{{$article->created_at}}</p>
-     <a class="detail" href="{{route('articles.show',$article->id)}}"> details<i class="fa-solid fa-eye fa-flip-horizontal" style="color: #b3e5fc;"></i></a>
+     <a class="detail" href="{{route('articles.detail',$article->id)}}"> details<i class="fa-solid fa-eye fa-flip-horizontal" style="color: #b3e5fc;"></i></a>
    
     <div class="bg-info clearfix" id="btn">
         <a href="{{ route('articles.edit',$article->id)}}">
