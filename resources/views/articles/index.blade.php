@@ -4,25 +4,23 @@
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Document</title>
 </head>
 <body>
-    
 
     <div class="container">
 
         <h3 align="center" id='titre'class="mt-5">Liste des Articles</h3>
-        <button type="button" class="btn btn-primary btn-lg"><a href="/articles/create">ajouter un article</a></button>
+        <button  type="button" class="btn btn-primary btn-lg"><a href="/articles/create" class="add">ajouter un article</a></button>
 
     <div class="carte">
             @foreach ($Article as $key => $article )
             
-            <div class="card" style="width:30rem;">
-            <button>{{$article->type}}</button>
-  <img src="{{$article->image}}" class="card-img-top" alt="...">
+            <div class="card" style="width:25rem;">
+            <button class="note">{{$article->type}}</button>
+  <img src="{{$article->image}}  " class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{$article->nom}}</h5>
      <p class="card-date">créer le:{{$article->created_at}}</p>
@@ -44,5 +42,71 @@
 
   @endforeach  
   </div> 
-</body>
+  <style>
+        .form-area{
+            padding: 20px;
+            margin-top: 20px;
+            background-color:#b3e5fc;
+        }
+
+        .bi-trash-fill{
+            color:red;
+            font-size: 18px;
+        }
+
+        .bi-pencil{
+            color:green;
+            font-size: 18px;
+            margin-left: 20px;
+        }
+        .button{
+            display:flex;
+            margin: 10%;
+            padding-top: 10%;
+            font-weight: bolder;
+            
+
+        }
+        #btn{
+            margin-top: 20%;
+        }
+      textarea{
+        height: 10rem;
+      }
+        .carte{
+         margin-top: 5%;
+            display: flex; 
+         margin-left: 2%;
+         margin-right: 2%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+            
+        
+        }
+
+        #titre{
+            font-size: 30px;
+            font-weight:bolder;
+            font-family:'Courier New', Courier, monospace ;
+        }
+       .detail{
+        font-weight: bolder;
+        font-size: 20px;
+        margin: 10px;
+     
+       float: right;
+       }
+       .add{
+        color: white;
+        text-decoration: none;
+       }
+       .note{
+        margin: 3%;
+        color: blue;
+        background-color:white;
+        border: none;
+        font-weight: bolder;
+       }
+    </style>
+  </body>
 </html>

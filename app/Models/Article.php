@@ -14,4 +14,8 @@ class Article extends Model
         'type',
         'image',
     ];
+    public function commentaires(){
+    return $this->HasFactory(Commentaire::class,'id_article');
+    }
 }
+

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Commentaire;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -41,8 +42,9 @@ class ArticleController extends Controller
      */
     public function detail(string $id)
     {
+        $commentaires=Commentaire::all()->where('article_id',$id);
         $article=Article::find($id);
-        return view('articles.detail',compact('article'));
+        return view('articles.detail',compact('article','commentaires'));
 
     }
 
@@ -70,7 +72,7 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $article=$this->Article->find($id);
         $article->delete();
