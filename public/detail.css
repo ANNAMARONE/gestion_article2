@@ -1,0 +1,39 @@
+.form-area{
+    padding: 20px;
+    margin-top: 20px;
+    background-color:#b3e5fc;
+}
+
+.bi-trash-fill{
+    color:red;
+    font-size: 18px;
+}
+
+.bi-pencil{
+    color:green;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.button{
+    display:flex;
+    margin: 10%;
+    padding-top: 10%;
+
+}
+
+.carte{
+ margin-top: 5%;
+    display: flex; 
+ margin-left: 20%;
+ margin-right: 5%;
+flex-wrap: wrap;
+    justify-content: space-between;
+}
+.card-title{
+    font-size: 30px;
+    margin: 10px;
+    font-weight: bolder;
+}
+.card-date{
+    color: blue;
+}
