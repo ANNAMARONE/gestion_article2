@@ -14,7 +14,7 @@ Route::get('/articles/create', [ArticleController::class, 'creation'])->name('ar
 Route::post('/articles/store', [ArticleController::class, 'store'])->name('articles.store');
 Route::post('/articles/edit/{id}', [ArticleController::class, 'edit'])->name('articles.modif');
 Route::post('/articles/update', [ArticleController::class, 'update'])->name('articles.modif');
-Route::get('/articles/delete/{id}',[ArticleController::class,'destroy'])->name('articles.destroy');
+Route::delete('/articles/delete/{id}',[ArticleController::class,'destroy'])->name('articles.destroy');
 Route::get('/articles/detail/{id}',[ArticleController::class,'detail'])->name('articles.detail');
 
 Route::post('commentaire/traitement',[CommentaireController::class,'creation']);
